@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  repository: 222634374732.dkr.ecr.us-east-1.amazonaws.com/springboot-ecr-repo
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 8081
+
+serviceAccount:
+  create:false
+
+
+ingress:
+  enabled: false
+
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+autoscaling:
+  enabled: false
+
+serviceAccount:
+  create: false
